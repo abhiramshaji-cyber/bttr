@@ -1,71 +1,31 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Botpress Webchat — Fullscreen</title>
-    <style>
-      /* Make the page and chat take the entire viewport */
-      html, body {
-        height: 100%;
-        margin: 0;
-        background: #0b1020; /* subtle background for load gap */
-      }
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Embedded Webchat Sample</title> 
+  <script src="https://cdn.botpress.cloud/webchat/v3/inject.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
 
-      /* Ensure the embedded webchat container spans the full screen */
-      #bp-embedded-webchat {
-        position: fixed;
-        inset: 0;
-        width: 100vw;
-        height: 100vh;
-      }
+    /* Make webchat div take remaining space */
+    #bp-embedded-webchat {
+      flex: 1;
+      min-height: 0; /* Important to prevent overflow */
+    }
+  </style>
+</head> 
+<body> 
 
-      /* Strengthen full-screen sizing for Webchat internals */
-      .bpWebchat, .bpw-layout {
-        position: fixed !important;
-        inset: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
-      }
+  <!-- Botpress Webchat will be embedded here --> 
+  <div id="bp-embedded-webchat"></div> 
 
-      /* Hide the launcher button since we're full-screen */
-      .bpw-floating-button, .bpw-launcher {
-        display: none !important;
-      }
-
-      /* Mobile safe-areas */
-      :root {
-        --safe-top: env(safe-area-inset-top);
-        --safe-bottom: env(safe-area-inset-bottom);
-      }
-      .bpw-layout {
-        padding-top: var(--safe-top);
-        padding-bottom: var(--safe-bottom);
-        box-sizing: border-box;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Embedded target element (configure this same ID in your Botpress Webchat settings) -->
-    <div id="bp-embedded-webchat"></div>
-
-    <!-- Botpress Webchat v3.3 injector -->
-    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
-    <!-- Your bot-specific initializer (auto-initializes the webchat) -->
-    <script src="https://files.bpcontent.cloud/2025/08/28/21/20250828210942-EB6XJQXS.js" defer></script>
-
-    <script>
-      // Open the chat automatically once Webchat is initialized
-      (function waitForInit() {
-        if (window.botpress && typeof window.botpress.on === 'function') {
-          window.botpress.on('webchat:initialized', function () {
-            try { window.botpress.open(); } catch (err) { console.warn('Botpress open() error:', err); }
-          });
-        } else {
-          setTimeout(waitForInit, 50);
-        }
-      })();
-    </script>
-  </body>
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/08/28/21/20250828210942-EB6XJQXS.js" defer></script>
+</body> 
 </html>

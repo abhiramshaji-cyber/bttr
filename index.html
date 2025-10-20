@@ -13,6 +13,16 @@
       flex-direction: column;
     }
 
+    /* Style for the top div */
+    #top-logo {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
     /* Make webchat div take remaining space */
     #bp-embedded-webchat {
       flex: 1;
@@ -21,6 +31,9 @@
   </style>
 </head> 
 <body> 
+
+  <!-- Added top logo div -->
+  <div id="top-logo">Additional logo goes here</div>
 
   <!-- Botpress Webchat will be embedded here --> 
   <div id="bp-embedded-webchat"></div> 

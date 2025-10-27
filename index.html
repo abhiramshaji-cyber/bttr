@@ -1,21 +1,23 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Embedded Webchat Sample</title> 
-  <script src="https://cdn.botpress.cloud/webchat/v3/inject.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Botpress Chat Embed - Local Test</title>
   <style>
     html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
     }
 
-    /* Style for the top div */
-    #top-logo {
-      background-color: #f2f2f2;
+    header {
+      background: #f2f2f2;
       text-align: center;
       padding: 1rem;
       font-weight: bold;
@@ -23,22 +25,25 @@
       border-bottom: 1px solid #ccc;
     }
 
-    /* Make webchat div take remaining space */
-    #bp-embedded-webchat {
+    iframe {
       flex: 1;
-      min-height: 0; /* Important to prevent overflow */
+      border: none;
+      width: 100%;
+      height: 100%;
+      max-height: calc(100vh - 60px);
     }
   </style>
-</head> 
-<body> 
+</head>
+<body>
 
-  <!-- Added top logo div -->
-  <div id="top-logo">Additional logo goes here</div>
+  <header>Embedded Botpress Chat thrpugh iframe (Local Test)</header>
 
-  <!-- Botpress Webchat will be embedded here --> 
-  <div id="bp-embedded-webchat"></div> 
+  <!-- Embed your botpress-chat.html -->
+  <iframe 
+    src="botpress-chat.html" 
+    title="Botpress Chat"
+    allow="microphone; camera"
+  ></iframe>
 
-  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
-  <script src="https://files.bpcontent.cloud/2025/08/28/21/20250828210942-EB6XJQXS.js" defer></script>
-</body> 
+</body>
 </html>

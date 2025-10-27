@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Embedded Webchat Sample</title> 
+  <script src="https://cdn.botpress.cloud/webchat/v3/inject.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Style for the top div */
+    #top-logo {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    /* Make webchat div take remaining space */
+    #bp-embedded-webchat {
+      flex: 1;
+      min-height: 0; /* Important to prevent overflow */
+    }
+  </style>
+</head> 
+<body> 
+
+
+  <div id="bp-embedded-webchat"></div> 
+
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/08/28/21/20250828210942-EB6XJQXS.js" defer></script>
+</body> 
+</html>
